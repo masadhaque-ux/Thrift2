@@ -1,20 +1,20 @@
 [
     {
         "name": "Vintage Red Dress",
-        "category": "Vintage",
+        "category": "Womens Wear",
         "price": 89.99,
-        "image": "./assets/images/222.jpg"
+        "image": "./assets/images/vintage coat.jpg"
     },
     {
         "name": "Old Fashion Coat",
-        "category": "Vintage",
+        "category": "Mens Wear",
         "price": 59.99,
         "image": "./assets/images/Vntage new.jpg"
     },
     {
         "name": "Vintage Coat",
-        "category": "Vintage",
+        "category": "Womens Wear Red",
         "price": 49.99,
-        "image": "./assets/images/vintage coat.jpg"
+        "image": "./assets/images/222.jpg"
     }
 ]
