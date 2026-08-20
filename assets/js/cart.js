@@ -8,10 +8,13 @@ for (let i = 0; i < cart.length; i++) {
 
     let data = cart[i];
 
-    let total = data.price * data.qty;
+    let price = Number(data.price);
+    let qty = Number(data.qty);
+
+    let total = price * qty;
 
     subtotal += total;
-    items += data.qty;
+    items += qty;
 
     html += `
         <div class="cart-item">
@@ -26,9 +29,9 @@ for (let i = 0; i < cart.length; i++) {
 
                 <h2>${data.name}</h2>
 
-                <p>Price: Rs. ${data.price}</p>
+                <p>Price: Rs. ${price}</p>
 
-                <p>Quantity: ${data.qty}</p>
+                <p>Quantity: ${qty}</p>
 
                 <button onclick="removeItem(${i})">
                     Remove
@@ -44,9 +47,12 @@ for (let i = 0; i < cart.length; i++) {
     `;
 }
 
-if (cart.length == 0) {
+
+if (cart.length === 0) {
+
     html = "<h2>Your cart is empty</h2>";
 }
+
 
 document.getElementById("cart-products").innerHTML = html;
 
@@ -55,8 +61,12 @@ document.getElementById("cart-items").innerText = items;
 document.getElementById("subtotal").innerText =
     "Rs. " + subtotal;
 
+
+let delivery = cart.length > 0 ? 250 : 0;
+
+
 document.getElementById("grand-total").innerText =
-    "Rs. " + (subtotal + 250);
+    "Rs. " + (subtotal + delivery);
 
 
 function removeItem(index) {
@@ -66,13 +76,12 @@ function removeItem(index) {
     localStorage.setItem("cart", JSON.stringify(cart));
 
     location.reload();
-
 }
 
 
 function checkout() {
 
-    if (cart.length == 0) {
+    if (cart.length === 0) {
 
         alert("Your cart is empty");
 
@@ -84,5 +93,4 @@ function checkout() {
 
         location.reload();
     }
-
 }
